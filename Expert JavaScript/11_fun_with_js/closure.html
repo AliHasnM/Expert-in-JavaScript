@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure aur chai</title>
+</head>
+
+<body style="background-color: #313131;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body>
+
+<script>
+    // function init() {
+    //     let name = "Mozilla";
+    //     function displayName() {
+    //         console.log(name);
+    //     }
+    //     displayName();
+    // }
+    // init();
+
+    // function outer(){
+    //     let username = "hitesh"
+    //     console.log("OUTER", secret);
+    //     function inner(){
+    //         let secret = "my123"
+    //         console.log("inner", username);
+    //     }
+    //     function innerTwo(){
+    //         console.log("innerTwo", username);
+    //         console.log(secret);
+    //     }
+    //     inner()
+    //     innerTwo()
+
+    // }
+    // outer()
+    // console.log("TOO OUTER", username);
+
+
+    // function makeFunc() {
+    //     const name = "Mozilla";
+    //     function displayName() {
+    //         console.log(name);
+    //     }
+    //     return displayName;
+    // }
+
+    // const myFunc = makeFunc();
+    // myFunc();
+
+</script>
+<script>
+    // document.getElementById("orange").onclick = function(){
+    //     document.body.style.backgroundColor = `orange`
+    // }
+    // document.getElementById("green").onclick = function(){
+    //     document.body.style.backgroundColor = `green`
+    // }
+
+    function clickHandler(color) {
+        // document.body.style.backgroundColor = `${color}`
+
+        return function () {
+            document.body.style.backgroundColor = `${color}`
+        }
+    }
+
+    document.getElementById('orange').onclick = clickHandler("orange")
+    document.getElementById('green').onclick = clickHandler("green")
+
+</script>
+
+</html>
+
+
+<!-- (1) Closures
+Definition: A closure is a function that retains access to its lexical scope, even when the function is executed outside that scope.
+Purpose: Closures allow functions to access variables from their containing (outer) function even after that function has finished execution.
+Example in Code: The clickHandler function creates a closure by returning an inner function that retains access to the color variable. -->
+
+<!-- (2) clickHandler Function
+Definition: This function takes a color parameter and returns a new function.
+Purpose: The returned function changes the background color of the webpage to the specified color when called. -->
+
+function clickHandler(color){
+return function(){
+document.body.style.backgroundColor = `${color}`
+}
+}
+<!-- (3) Assigning Event Handlers
+Definition: Event handlers are assigned to the onclick event of the buttons using the clickHandler function.
+Purpose: When the buttons are clicked, they execute the closure returned by clickHandler, which changes the background color. -->
+document.getElementById('orange').onclick = clickHandler("orange")
+document.getElementById('green').onclick = clickHandler("green")

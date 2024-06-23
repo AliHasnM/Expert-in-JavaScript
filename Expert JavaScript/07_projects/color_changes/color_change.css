@@ -1,0 +1,35 @@
+#buttons{
+    gap: 10px;
+}
+#grey {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px 20px;
+    background-color: grey;
+    text-decoration: none;
+    cursor: pointer;
+}
+#yellow {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px 20px;
+    background-color: yellow;
+    text-decoration: none;
+    cursor: pointer;
+}
+#blue {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px 20px;
+    background-color: blue;
+    text-decoration: none;
+    cursor: pointer;
+}
+#white {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px 20px;
+    background-color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
